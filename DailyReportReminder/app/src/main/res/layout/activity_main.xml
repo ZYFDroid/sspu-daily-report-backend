@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ui.MainActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:text="一键\n填报"
+                android:id="@+id/btnStart"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textSize="28sp"
+                android:elevation="3dp"
+                android:background="@drawable/btn_login_material"
+                android:onClick="onLoginClick"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:alpha="0.1"
+                android:layout_gravity="center"
+                android:text="调试模式"
+                android:buttonTint="@color/colorAccent"
+                android:id="@+id/chkDebug"
+                android:textColor="@color/colorAccent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textColor="@color/colorAccent"
+                    android:text="体温："/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/numTemperature"
+                    android:text="|||||||||| 左右拖动调整 ||||||||||"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblTemperature"
+                    android:textAppearance="@android:style/TextAppearance.Large"
+                    android:textColor="@color/colorAccent"
+                    android:text="36.6"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@android:style/TextAppearance.Large"
+                    android:textColor="@color/colorAccent"
+                    android:text="℃"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#f00"
+                android:gravity="center"
+                android:text="请确保已填写的内容和体温属实\n默认填报身体状况良好，不适请使用手动填报"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#fff"
+        android:elevation="5dp"
+        android:layout_height="64dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_ripple"
+            android:layout_weight="1"
+            android:onClick="onManualReport"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_manual"
+                android:tint="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手动填报"
+                android:textColor="@color/colorAccent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_ripple"
+            android:layout_weight="1"
+            android:onClick="onHistory"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_history"
+                android:tint="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="填报历史"
+                android:textColor="@color/colorAccent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_ripple"
+            android:layout_weight="1"
+            android:onClick="setNotification"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_set_notification"
+                android:tint="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置提醒"
+                android:textColor="@color/colorAccent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_ripple"
+            android:layout_weight="1"
+            android:onClick="setAccount"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_change_login"
+                android:tint="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登录信息"
+                android:textColor="@color/colorAccent"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

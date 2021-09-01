@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.NotificationActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Switch
+            android:layout_width="match_parent"
+            android:id="@+id/chkEnableNotification"
+            android:layout_height="wrap_content"
+            android:text="开启提醒"
+            android:padding="20dp"/>
+    </FrameLayout>
+    <View android:visibility="gone" android:layout_width="match_parent" android:layout_margin="5dp" android:layout_height="0.6dp" android:background="#7000"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/chkPlaySound"
+            android:visibility="gone"
+            android:text="播放声音"
+            android:padding="20dp"/>
+    </FrameLayout>
+    <View android:layout_width="match_parent" android:layout_margin="5dp" android:layout_height="0.6dp" android:background="#7000"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/chkTryAuto"
+            android:text="尝试自动填报"
+            android:onClick="onAutoWarningMessage"
+            android:padding="20dp"/>
+    </FrameLayout>
+    <View android:layout_width="match_parent" android:layout_margin="5dp" android:layout_height="0.6dp" android:background="#7000"/>
+
+    <Button
+        android:id="@+id/allowWhenDnd"
+        android:layout_width="match_parent"
+        android:text="系统通知设置"
+        android:layout_height="wrap_content"
+        android:onClick="allowwhendnd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/testNotification"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="测试通知"
+            android:layout_height="wrap_content"
+            android:onClick="testcn" />        <Button
+            android:id="@+id/testTurnOffNotification"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="移除通知"
+            android:layout_height="wrap_content"
+            android:onClick="testcff" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="今天已报，不再提醒"
+        android:onClick="markReported"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="未设置提醒"
+        android:gravity="center"
+        android:id="@+id/txtNextNotification"
+        android:drawableLeft="@drawable/ic_set_notification"/>
+
+    <TextView
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="提醒功能说明：\n请允许软件的开机自启功能，后台白名单。最好点开系统通知设置，启动覆盖请勿打扰。\n\n每天第一次6:00提醒，此后每隔半小时提醒一次，直到完成一次填报。\n\n若8:45仍然没有填报，则会用默认体温尝试自动填报，至于是否成功随缘。"/>
+</LinearLayout>
+</ScrollView>

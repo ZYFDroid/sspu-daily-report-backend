@@ -1,0 +1,14 @@
+*.iml
+.gradle
+/DailyReportReminder/local.properties
+/DailyReportReminder/.idea/caches
+/DailyReportReminder/.idea/libraries
+/DailyReportReminder/.idea/modules.xml
+/DailyReportReminder/.idea/workspace.xml
+/DailyReportReminder/.idea/navEditor.xml
+/DailyReportReminder/.idea/assetWizardSettings.xml
+.DS_Store
+/DailyReportReminder/build
+/DailyReportReminder/captures
+.externalNativeBuild
+.cxx
