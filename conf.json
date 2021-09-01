@@ -1,0 +1,9 @@
+{
+    "code":200,
+    "disabled":false,
+    "bbs":"欢迎使用二工大每日一报app。\n本app由学生个人开发，不提供任何形式的保证",
+    "script":"script_1.0.0.0.js",
+    "scriptversion":"1",
+    "allowauto":true,
+    "allowonekey":true
+}
