@@ -57,7 +57,7 @@ public class PerformActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        WebView.setWebContentsDebuggingEnabled(true);
         if(getIntent().getBooleanExtra("attempt",false)){
             KeyguardManager km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
             KeyguardManager.KeyguardLock keyguardLock = km.newKeyguardLock("1");
@@ -69,7 +69,7 @@ public class PerformActivity extends Activity {
         }
         setContentView(R.layout.activity_perform);
         setTitle("填报页面");
-        infusionJavascript = AssetUtils.getFromAssets(this,"operate.js");
+        infusionJavascript = SpUtils.on(this).getString(SpUtils.SCRIPTCACHE,AssetUtils.getFromAssets(this,"operate.js"));
         initUi();
         initWeb();
         if(SpUtils.on(this).getBoolean(SpUtils.FIRST_RUN,true)){

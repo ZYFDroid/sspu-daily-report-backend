@@ -115,6 +115,7 @@
             android:focusable="true"
             android:background="@drawable/bg_ripple"
             android:layout_weight="1"
+            android:id="@+id/manualContainer"
             android:onClick="onManualReport"
             android:layout_height="match_parent"
             android:orientation="vertical"

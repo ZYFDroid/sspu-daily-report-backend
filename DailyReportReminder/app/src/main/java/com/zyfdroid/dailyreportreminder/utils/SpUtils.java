@@ -14,6 +14,10 @@ public class SpUtils {
     public static final String TRY_AUTO_REPORT="tryreport";
     public static final String ALARM_WITH_SOUND="alarmsound";
     public static final String TUTORIAL_READ="tutorialread";
+    public static final String SCRIPT_VER="scriptver";
+    public static final String CONFCACHE="confcache";
+    public static final String CONFCACHE_EXPIRE="confcacheexp";
+    public static final String SCRIPTCACHE="scrcache";
 
     public static SharedPreferences on(Context ctx){
         return ctx.getSharedPreferences("settings",Context.MODE_PRIVATE);

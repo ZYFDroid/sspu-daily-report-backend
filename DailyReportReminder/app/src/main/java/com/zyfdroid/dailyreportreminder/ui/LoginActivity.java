@@ -2,8 +2,10 @@ package com.zyfdroid.dailyreportreminder.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -13,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.zyfdroid.dailyreportreminder.R;
+import com.zyfdroid.dailyreportreminder.utils.ConfBean;
+import com.zyfdroid.dailyreportreminder.utils.HttpUtils;
 import com.zyfdroid.dailyreportreminder.utils.SpUtils;
 
 
@@ -80,6 +84,7 @@ public class LoginActivity extends Activity {
     }
 
     public void showBBS(View view) {
-
+        ConfBean conf = ConfBean.getConf(this);
+        new AlertDialog.Builder(this).setTitle("公告").setMessage(conf.getBbs()).setPositiveButton("确定", null).create().show();
     }
 }

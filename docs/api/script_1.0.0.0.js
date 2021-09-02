@@ -28,7 +28,7 @@ function myOnLoadEnd(url){
     if(url.startsWith(my_reportUrl)){
         if(my_autoReport == true){
             console.log("autoreport is on, now begin report process");
-            setTimeout(()->{
+            setTimeout(function(){
                 ProgressAccessor.fail("一键填报暂未开通");
             },1000);
             ProgressAccessor.showProgress("一键填报中");

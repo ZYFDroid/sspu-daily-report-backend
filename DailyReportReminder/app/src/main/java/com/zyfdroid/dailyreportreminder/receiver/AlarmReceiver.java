@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.zyfdroid.dailyreportreminder.utils.AlarmChecker;
 import com.zyfdroid.dailyreportreminder.utils.AlarmUtils;
+import com.zyfdroid.dailyreportreminder.utils.ConfBean;
 import com.zyfdroid.dailyreportreminder.utils.NotificatinUtils;
 import com.zyfdroid.dailyreportreminder.utils.SpUtils;
 import com.zyfdroid.dailyreportreminder.utils.TimeUtils;
@@ -17,7 +18,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     private static final String TAG = "AlarmTest";
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(final Context context, Intent intent) {
         Log.w(TAG, "onReceive");
         if(SpUtils.shouldSetAlarm(context)) {
             Date now = new Date();
@@ -29,7 +30,12 @@ public class AlarmReceiver extends BroadcastReceiver {
                 NotificatinUtils.postNoification(context, msg[0], msg[1]);
 
                 if(SpUtils.on(context).getBoolean(SpUtils.TRY_AUTO_REPORT,false) && TimeUtils.computeAutoTryNecessary(now)){
-                    AlarmUtils.setAutoReport(context);
+                    if(ConfBean.getConf(context).getAllowauto()){
+                        AlarmUtils.setAutoReport(context);
+                    }
+                    else{
+                        SpUtils.on(context).edit().putBoolean(SpUtils.TRY_AUTO_REPORT,false).apply();
+                    }
                 }
             }
             AlarmChecker.checkAlarmClock(context);

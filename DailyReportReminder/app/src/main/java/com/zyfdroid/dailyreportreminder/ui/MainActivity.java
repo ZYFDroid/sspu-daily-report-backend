@@ -14,10 +14,10 @@ import android.widget.TextView;
 
 import com.zyfdroid.dailyreportreminder.R;
 import com.zyfdroid.dailyreportreminder.utils.AlarmChecker;
+import com.zyfdroid.dailyreportreminder.utils.ConfBean;
 import com.zyfdroid.dailyreportreminder.utils.SpUtils;
 import com.zyfdroid.dailyreportreminder.utils.TimeUtils;
 
-import org.tyrano.game.GameActivity;
 
 import java.util.Date;
 
@@ -56,6 +56,11 @@ public class MainActivity extends Activity {
                 DEBUG_MODE = isChecked;
             }
         });
+        ConfBean confBean = ConfBean.getConf(this);
+        if(!confBean.getAllowonekey()){
+            btnStart.setText("手动\n填报");
+            findViewById(R.id.manualContainer).setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -68,6 +73,11 @@ public class MainActivity extends Activity {
         else{
             btnStart.setBackgroundResource(R.drawable.btn_login_material);
             btnStart.setText("一键\n填报");
+            ConfBean confBean = ConfBean.getConf(this);
+            if(!confBean.getAllowonekey()){
+                btnStart.setText("手动\n填报");
+                findViewById(R.id.manualContainer).setVisibility(View.GONE);
+            }
         }
     }
 
@@ -76,11 +86,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUi();
-        if(!SpUtils.on(this).getBoolean(SpUtils.TUTORIAL_READ,false)){
-            startActivity(new Intent(this, GameActivity.class));
-            finish();
-            return;
-        }
+
 
         setTemperature(SpUtils.on(this).getInt(SpUtils.TEMPERATURE,366));
 
@@ -109,7 +115,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        setTitle("每日填报");
+        setTitle("每日一报");
         if(SpUtils.on(this).getBoolean(SpUtils.FIRST_RUN,true)){
             startActivity(new Intent(this,LoginActivity.class));
         }

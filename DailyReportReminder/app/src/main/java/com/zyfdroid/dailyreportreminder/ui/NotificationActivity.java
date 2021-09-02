@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.zyfdroid.dailyreportreminder.R;
 import com.zyfdroid.dailyreportreminder.utils.AlarmChecker;
 import com.zyfdroid.dailyreportreminder.utils.AlarmUtils;
+import com.zyfdroid.dailyreportreminder.utils.ConfBean;
 import com.zyfdroid.dailyreportreminder.utils.NotificatinUtils;
 import com.zyfdroid.dailyreportreminder.utils.SpUtils;
 import com.zyfdroid.dailyreportreminder.utils.TimeUtils;
@@ -31,7 +32,8 @@ public class NotificationActivity extends Activity {
             "1. 自动填报只适用于特殊情况下（例如参与考试时上交手机后）\n" +
             "2. 自动填报仅会在开启提醒之后才生效，仅打开 尝试自动填报 不会有效\n" +
             "3. 自动填报每月只有5次机会，不可累计，每月1日零点清零。机会用尽后自动填报将不生效\n" +
-            "4. 自动填报可能会因为网络，电量，后台设置等原因失效。您需要自行承担风险\n";
+            "4. 自动填报可能会因为网络，电量，后台设置等原因失效。您需要自行承担风险\n" +
+            "5. 自动填报可能会因为相关方的要求停止使用";
 
     public void markReported(View view) {
         SpUtils.on(this).edit().putLong(SpUtils.DAY_REPORTED, TimeUtils.getDayStamp(new Date())).apply();
@@ -106,6 +108,11 @@ public class NotificationActivity extends Activity {
         settingBinders.add(new SwitchBinder(R.id.chkPlaySound,SpUtils.ALARM_WITH_SOUND,false));
         settingBinders.add(new SwitchBinder(R.id.chkTryAuto,SpUtils.TRY_AUTO_REPORT,false));
         loadSettings();
+        ConfBean confBean = ConfBean.getConf(this);
+        if(!confBean.getAllowauto()){
+            findViewById(R.id.chkTryAuto).setEnabled(false);
+            ((CompoundButton)findViewById(R.id.chkTryAuto)).setEnabled(false);
+        }
     }
 
 
