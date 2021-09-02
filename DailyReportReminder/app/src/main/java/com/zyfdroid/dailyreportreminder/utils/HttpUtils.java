@@ -10,7 +10,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class HttpUtils {
-    public static final String baseUrl = "http://sspu-daily.zyfdroid.com/";
+    public static final String baseUrl = "https://sspu-daily.zyfdroid.com/";
     public static final String confUrl = "api/conf.json";
     public static String httpGet(String url) throws SocketTimeoutException, IOException, InvalidResponseCodeException {
         try {
