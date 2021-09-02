@@ -142,6 +142,11 @@ public class MainActivity extends Activity {
     }
 
     public void gotoAutoReport(){
+        ConfBean cb = ConfBean.getConf(this);
+        if(!cb.getAllowonekey()){
+            onManualReport(null);
+            return;
+        }
         Intent i = new Intent(this,PerformActivity.class);
         i.putExtra("temp",String.valueOf(getTemperature() / 10f));
         i.putExtra("auto",true);

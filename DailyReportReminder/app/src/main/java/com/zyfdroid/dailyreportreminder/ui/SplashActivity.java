@@ -32,7 +32,7 @@ public class SplashActivity extends Activity {
                 if(SpUtils.on(SplashActivity.this).getLong(SpUtils.CONFCACHE_EXPIRE,0) < System.currentTimeMillis()){
                     try {
                         String json = HttpUtils.httpGet(HttpUtils.confUrl);
-                        SpUtils.on(SplashActivity.this).edit().putString(SpUtils.CONFCACHE,json).putLong(SpUtils.CONFCACHE_EXPIRE,System.currentTimeMillis()+43200000L).apply();
+                        SpUtils.on(SplashActivity.this).edit().putString(SpUtils.CONFCACHE,json).putLong(SpUtils.CONFCACHE_EXPIRE,System.currentTimeMillis()+120000L).apply();
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (HttpUtils.InvalidResponseCodeException e) {
