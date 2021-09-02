@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.zyfdroid.dailyreportreminder.R;
 import com.zyfdroid.dailyreportreminder.utils.ConfBean;
