@@ -90,10 +90,10 @@ public class SplashActivity extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.VIEW");
-                Uri content_url = Uri.parse(HttpUtils.baseUrl);
+                ConfBean cb = ConfBean.getConf(SplashActivity.this);
+                Uri content_url = Uri.parse(cb.getApkurl());
                 intent.setData(content_url);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
                 startActivity(intent);
             }
         }).create().show();
