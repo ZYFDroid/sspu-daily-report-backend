@@ -1,7 +1,7 @@
 {
     "code":200,
-    "disabled":false,
-    "bbs":"欢迎使用二工大每日一报app。\n本app由学生个人开发，不提供任何形式的保证",
+    "disabled":true,
+    "bbs":"二工大每日一报app\n作者毕业了，求接手开发。(请去issue里提)。需要会web前端，Android开发(可选)",
     "script":"script_1.0.0.2.js",
     "scriptversion":2,
     "allowauto":false,
